@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 function DataView() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,15 +26,15 @@ function DataView() {
         </tr>
       </thead>
       <tbody>
-        {Object.entries(data).map(([date, entry], idx) => (
-          <tr key={idx}>
-            <td>{date}</td>
-            <td>{entry.bedTime}</td>
-            <td>{entry.sleepTime}</td>
-            <td>{entry.wakeUpTime}</td>
-            <td>{entry.getUpTime}</td>
-            <td>{entry.toiletVisits}</td>
-            <td>{entry.workoutDone ? 'Да' : 'Нет'}</td>
+        {data.map((entry) => (
+          <tr key={entry.id}>
+            <td>{entry.date}</td>
+            <td>{entry.bed_time}</td>
+            <td>{entry.sleep_time}</td>
+            <td>{entry.wake_up_time}</td>
+            <td>{entry.get_up_time}</td>
+            <td>{entry.toilet_visits}</td>
+            <td>{entry.workout_done ? 'Да' : 'Нет'}</td>
           </tr>
         ))}
       </tbody>
